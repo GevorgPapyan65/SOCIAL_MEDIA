@@ -95,3 +95,10 @@
   .rightbarFollowButton:focus{
     outline: none;
   }
+
+  .chatMessage{
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #1872f2;
+  }

@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react"
 import axios from "axios"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext"
-import { Add, Remove } from "@mui/icons-material"
+import { Add, Chat, Remove } from "@mui/icons-material"
 
 export default function Rightbar({user}) {
   const PF = process.env.REACT_APP_PUBLIC_FOLDER
@@ -73,6 +73,7 @@ export default function Rightbar({user}) {
           {followed ? <Remove/> : <Add/>}
         </button>
       )}
+      <Chat className="chatMessage"/>
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">

@@ -38,7 +38,14 @@ const AuthReducer = (state, action) => {
       };
     default:
       return state;
+      case "LOGOUT":
+                return {
+                    user:localStorage.setItem("user", null),
+                    isFetching:false,
+                    error:false
+                };
   }
+
 };
 
 export default AuthReducer;

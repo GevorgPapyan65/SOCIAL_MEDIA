@@ -3,9 +3,21 @@ import "./topbar.css"
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import {logoutCall} from '../../apiCalls'
+import { Dispatch } from "react";
+
+
 export default function Topbar() {
   const { user } = useContext(AuthContext);
   const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+
+  const {dispatch } = useContext(AuthContext);
+  const handleClick = () => {
+      logoutCall(
+        dispatch
+      );
+    }
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
@@ -41,6 +53,7 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
+        <span className="topbarLink" onClick={handleClick}>Sign out</span>
         <Link to={`/profile/${user.username}`}>
           <img
             src={
