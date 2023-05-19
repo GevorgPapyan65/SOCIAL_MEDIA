@@ -92,3 +92,8 @@
     object-fit: cover;
     cursor: pointer;
 }
+
+.chatMessage{
+    cursor: pointer;
+    color: #fff;
+  }

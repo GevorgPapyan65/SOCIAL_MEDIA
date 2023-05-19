@@ -17,6 +17,7 @@ export default function Topbar() {
       logoutCall(
         dispatch
       );
+      
     }
   return (
     <div className="topbarContainer">
@@ -36,8 +37,9 @@ export default function Topbar() {
       </div>
       <div className="topbarRight">
         <div className="topbarLinks">
-          <span className="topbarLink">Homepage</span>
-          <span className="topbarLink">Timeline</span>
+          <span className="topbarLink"><Link style={{color: "white", textDecoration:"none"}} to="/">Homepage</Link></span>
+          <span className="topbarLink"></span>
+
         </div>
         <div className="topbarIcons">
           <div className="topbarIconItem">
@@ -45,15 +47,17 @@ export default function Topbar() {
             <span className="topbarIconBadge">1</span>
           </div>
           <div className="topbarIconItem">
-            <Chat />
-            <span className="topbarIconBadge">2</span>
+          <Link to="/messenger"><Chat className="chatMessage"/></Link>
+            {/* <span className="topbarIconBadge">2</span> */}
           </div>
           <div className="topbarIconItem">
             <Notifications />
             <span className="topbarIconBadge">1</span>
           </div>
         </div>
-        <span className="topbarLink" onClick={handleClick}>Sign out</span>
+        <span className="topbarLink" onClick={handleClick}>Sign out
+        
+        </span>
         <Link to={`/profile/${user.username}`}>
           <img
             src={

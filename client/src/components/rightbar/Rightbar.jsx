@@ -73,7 +73,7 @@ export default function Rightbar({user}) {
           {followed ? <Remove/> : <Add/>}
         </button>
       )}
-      <Chat className="chatMessage"/>
+
         <h4 className="rightbarTitle">User information</h4>
         <div className="rightbarInfo">
           <div className="rightbarInfoItem">

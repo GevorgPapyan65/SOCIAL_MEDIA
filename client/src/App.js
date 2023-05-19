@@ -19,7 +19,7 @@ function App() {
                 user ? <Home /> : <Registration/>
                 }/>
               <Route path="/login" element={
-                // user ? <Navigate to="/" /> : 
+                user ? <Navigate to="/" /> : 
                 <Login />
                 }/>
               <Route path="/registration" element={
