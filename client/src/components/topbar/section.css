@@ -1,0 +1,37 @@
+
+.postTop1{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-bottom: 2%;
+    
+}
+
+.postTop1:hover{
+    background-color: rgba(68, 73, 80, 0.35);;
+}
+.postTopLeft1{
+    
+    display: flex;
+    align-items: center;
+}
+.postProfileImg1{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+.postUsername1{
+    font-size: 15px;
+    font-weight: 500;
+    margin: 0 10px; 
+}
+.postDate1{
+    font-size: 12px;
+}
+
+.hidden {
+    display: none;
+  }

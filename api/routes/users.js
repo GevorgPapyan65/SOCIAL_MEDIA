@@ -42,16 +42,16 @@ router.delete("/:id", async (req, res) => {
     }
   });
 //get a user
-router.get("/:id", async (req,res)=>{
-    try{
-        const user = await User.findById(req.params.id)
-        const {password, updateAt, ...other} = user._doc;
-        res.status(200).json(other)
+// router.get("/:id", async (req,res)=>{
+//     try{
+//         const user = await User.findById(req.params.id)
+//         const {password, updateAt, ...other} = user._doc;
+//         res.status(200).json(other)
 
-    }catch{
-        return res.status(500).json(err);
-    }
-})
+//     }catch{
+//          res.status(500).json(err);
+//     }
+// })
 
 //get all user
 router.get("/", async (req, res) => {
@@ -131,5 +131,23 @@ router.put("/:id/unfollow", async (req, res) => {
     res.status(403).json("you cant unfollow yourself");
   }
 });
+
+
+router.get("/search", async (req, res) => {
+  const query = req.query.q; // Get the search query from the request query parameters
+  console.log("hellllllloooooo",req.query.q);
+  try {
+    const users = await User.find({
+      $or: [
+        { username: { $regex: query, $options: "s" } }, // Search by username (case-insensitive)
+        // { email: { $regex: query, $options: "i" } }, // Search by email (case-insensitive)
+      ],
+    });
+    res.status(200).json(users);
+  } catch (err) {
+    res.status(500).json({ error: err.message }); // Send the error message as the response
+  }
+});
+
 
 module.exports = router;
